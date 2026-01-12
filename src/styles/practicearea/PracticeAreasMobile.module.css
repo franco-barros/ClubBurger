@@ -1,0 +1,94 @@
+.sliderMobile {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 1.5rem;
+}
+
+.keen-slider__slide {
+  min-width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.areaCard {
+  width: 90%;
+  border-radius: 25px;
+  padding: 1.5rem;
+
+  background: #c8ae7d;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.areaCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+
+.iconWrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  margin: 0 auto 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+
+  color: #8d6b24;
+}
+
+.areaCard h4 {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+
+  color: #8d6b24;
+
+  margin-bottom: 0.75rem;
+}
+
+.itemList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.itemList li {
+  font-size: 0.95rem;
+  color: #114137;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.itemList li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0.12rem;
+
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #8d6b24;
+
+  font-weight: bold;
+  font-size: 0.9rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

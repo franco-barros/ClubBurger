@@ -1,0 +1,32 @@
+.backToTopButton {
+  position: fixed;
+  bottom: 0.55rem;
+  left: 0.55rem;
+
+  background: linear-gradient(135deg, #114137 0%, #2a6558 45%, #c7ae7d 100%);
+
+  color: #ffffff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.backToTopButton:hover {
+  background: linear-gradient(135deg, #c7ae7d 0%, #bfa478 40%, #114137 100%);
+  transform: scale(1.1);
+}
+
+.icon {
+  font-size: 24px;
+  pointer-events: none;
+  color: #ffffff;
+}

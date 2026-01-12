@@ -1,0 +1,139 @@
+.footer {
+  background-color: #ffffff;
+  color: #111111;
+  padding: 2rem 1.5rem;
+  font-family: var(--font-rethink-sans);
+  font-weight: 400;
+}
+
+.content {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin-bottom: 1.5rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #8d6b24;
+  font-family: var(--font-rethink-sans);
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #114137;
+  border-bottom: 1px solid rgba(17, 65, 55, 0.25);
+  padding-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-rethink-sans);
+}
+
+.description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #111111;
+  font-family: var(--font-rethink-sans);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  font-family: var(--font-rethink-sans);
+}
+
+.list li a,
+.linkButton {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: #114137;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.list li a:hover,
+.linkButton:hover {
+  color: #8d6b24;
+  text-decoration: underline;
+}
+
+.bottomBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(17, 65, 55, 0.25);
+  padding-top: 1rem;
+}
+
+.copy {
+  font-size: 0.8rem;
+  color: #114137;
+  text-align: center;
+  width: 100%;
+  font-family: var(--font-rethink-sans);
+  font-weight: 400;
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.3rem;
+}
+
+.icon {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+}
+
+.section:first-child {
+  gap: 0.2rem;
+}
+
+@media (min-width: 769px) {
+  .iconWrapper {
+    justify-content: flex-start;
+  }
+
+  .icon {
+    width: 180px;
+  }
+
+  .section:first-child {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .title,
+  .subtitle,
+  .description,
+  .list li {
+    justify-content: center;
+  }
+}

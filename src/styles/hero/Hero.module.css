@@ -1,0 +1,170 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  background-color: #ffffff;
+  overflow: hidden;
+  scroll-margin-top: 120px;
+}
+
+.hero .carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero .carousel .inner {
+  display: flex;
+  height: 100%;
+}
+
+.hero .carousel .item {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hero .carousel .item img,
+.hero .carousel .item span {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+.heroLogoWrapper {
+  position: relative;
+  width: 260px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 1.5rem auto;
+}
+
+.phrase {
+  font-family: var(--font-rethink-sans);
+  color: #114137;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.content {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  max-width: 660px;
+  margin: 2rem 0;
+  border: 2px solid #c7ae7d;
+  outline: 4px solid rgba(255, 255, 255, 0.35);
+  outline-offset: -6px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.3);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  font-family: var(--font-rethink-sans) !important;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btnPrimary {
+  background-color: #114137;
+  color: #ffffff;
+}
+
+.btnPrimary:hover {
+  background-color: #0c3028;
+}
+
+@media (min-width: 1025px) {
+  .content {
+    max-width: 540px;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content {
+    max-width: 90%;
+    padding: 2rem;
+  }
+
+  .phrase {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: 80vh;
+    padding: 1.5rem 1rem;
+  }
+
+  .heroLogoWrapper {
+    width: 200px;
+    aspect-ratio: 1 / 1;
+  }
+  .content {
+    max-width: 95%;
+    padding: 1.5rem;
+  }
+
+  .phrase {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 320px;
+  }
+}
