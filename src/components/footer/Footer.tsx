@@ -1,74 +1,96 @@
 "use client";
 
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { MapPin, ShoppingBag, Clock } from "lucide-react";
 import styles from "../../styles/Footer.module.css";
 
 const Footer = () => {
   const pathname = usePathname();
-  const isAdmin = pathname.startsWith("/admin");
-  const isHome = pathname === "/";
+  const router = useRouter();
 
+  const isAdmin = pathname.startsWith("/admin");
   if (isAdmin) return null;
 
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+  const goTo = (path: string) => {
+    router.push(path);
   };
-
-  const sections = [
-    { id: "hero", label: "Inicio" },
-    { id: "aboutus", label: "Sobre Nosotros" },
-    { id: "contact", label: "Contacto" },
-  ];
 
   return (
     <footer id="footer" className={styles.footer}>
       <div className={styles.content}>
+        {/* BRAND */}
         <div className={styles.section}>
           <div className={styles.iconWrapper}>
             <Image
-              src="/icons/LogoC2.png"
-              alt="Icono Contabilidad"
+              src="/icons/LogoHamburguesas.png"
+              alt="Logo Hamburguesería"
               width={160}
               height={140}
               className={styles.icon}
+              priority
             />
           </div>
 
           <p className={styles.description}>
-            Brindamos asesoramiento contable profesional para decisiones
-            financieras seguras y eficientes, adaptadas a tus necesidades
-            personales o de tu empresa.
+            Hamburguesas artesanales hechas al momento, con ingredientes
+            seleccionados y recetas propias. Calidad, sabor y actitud.
           </p>
         </div>
 
-        {isHome && (
-          <div className={styles.section}>
-            <h4 className={styles.subtitle}>Enlaces</h4>
-            <ul className={styles.list}>
-              {sections.map((section) => (
-                <li key={section.id}>
-                  <button
-                    type="button"
-                    className={styles.linkButton}
-                    onClick={() => scrollToSection(section.id)}
-                  >
-                    {section.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {/* LINKS */}
+        <div className={styles.section}>
+          <h4 className={styles.subtitle}>Navegación</h4>
+
+          <ul className={styles.list}>
+            <li>
+              <button
+                type="button"
+                className={styles.linkButton}
+                onClick={() => goTo("/")}
+              >
+                Inicio
+              </button>
+            </li>
+
+            <li>
+              <button
+                type="button"
+                className={styles.linkButton}
+                onClick={() => goTo("/order")}
+              >
+                Ordenar ahora
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        {/* INFO */}
+        <div className={styles.section}>
+          <h4 className={styles.subtitle}>Información</h4>
+
+          <ul className={styles.infoList}>
+            <li>
+              <MapPin size={16} />
+              <span>Envíos en la zona</span>
+            </li>
+
+            <li>
+              <ShoppingBag size={16} />
+              <span>Take Away disponible</span>
+            </li>
+
+            <li>
+              <Clock size={16} />
+              <span>Todos los días de 19 a 00 hs</span>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div className={styles.bottomBar}>
         <p className={styles.copy}>
-          © 2025 Paula Martínez Contadora Pública | Todos los derechos
-          reservados.
+          © 2025 Hamburguesería Artesanal — Hecho con pasión
         </p>
       </div>
     </footer>

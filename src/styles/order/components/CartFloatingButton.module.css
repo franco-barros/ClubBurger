@@ -1,0 +1,32 @@
+.button {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  background: linear-gradient(135deg, #cfa24a, #a97f2d);
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 800;
+  color: #111;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  z-index: 1200;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.75);
+}
+
+.count {
+  background: #111;
+  color: #cfa24a;
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+}

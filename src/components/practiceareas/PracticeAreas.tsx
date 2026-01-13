@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import styles from "../../styles/practicearea/PracticeAreas.module.css";
-import { Layers, Briefcase, Users, FileText, Rocket } from "lucide-react";
+import { Layers, Flame, Truck, UtensilsCrossed, Star } from "lucide-react";
 import { FaCheck } from "react-icons/fa";
 import PracticeAreasMobile from "./practiceareasmobile";
 import { FadeInOnScroll } from "../shared/fadeInonscroll";
@@ -17,46 +18,47 @@ interface PracticeArea {
 const practiceAreas: PracticeArea[] = [
   {
     id: "1",
-    title: "Asesoría impositiva y contable",
+    title: "Hamburguesas Artesanales",
     items: [
-      "Alta de Monotributo, Responsable Inscripto",
-      "Presentación de declaraciones juradas y recategorizaciones",
-      "Asesoramiento y gestión impositiva integral para personas físicas y jurídicas",
-      "Defensa ante organismos de fiscalización nacionales y provinciales",
-      "Planificación fiscal",
-      "Control de documentación contable y cumplimiento normativo",
-      "Análisis de informes contables y económicos",
+      "Carne 100% vacuna seleccionada",
+      "Pan artesanal horneado a diario",
+      "Hamburguesas simples, dobles y triples",
+      "Opciones smash y clásicas",
+      "Recetas originales de la casa",
     ],
-    icon: <Briefcase size={28} />,
+    icon: <Flame size={26} />,
   },
   {
     id: "2",
-    title: "Gestión Laboral",
+    title: "Papas & Acompañamientos",
     items: [
-      "Altas y bajas de personal, liquidación de sueldos y asesoramiento en normativa laboral",
-      "Proceso de selección de personal, entrevistas, inducción, etc.",
-      "Diseños de procesos administrativos, organigramas y manual de funciones",
+      "Papas clásicas y rústicas",
+      "Papas con cheddar y bacon",
+      "Aros de cebolla crocantes",
+      "Salsas caseras",
     ],
-    icon: <Users size={28} />,
+    icon: <UtensilsCrossed size={26} />,
   },
   {
     id: "3",
-    title: "Asesoría en Inicio de Negocios",
+    title: "Combos Imperdibles",
     items: [
-      "Asistencia integral para emprendedores y nuevas empresas",
-      "Buscamos las mejores alternativas de financiamiento para tu proyecto",
-      "Orientación en la elección de estructuras legales, planificación fiscal y gestión administrativa inicial",
+      "Hamburguesa + papas + bebida",
+      "Combos individuales y para compartir",
+      "Promos semanales",
     ],
-    icon: <Rocket size={28} />,
+    icon: <Star size={26} />,
   },
   {
     id: "4",
-    title: "Certificaciones Contables",
+    title: "Delivery & Take Away",
     items: [
-      "Elaboración y emisión de certificaciones contables y laborales",
-      "Informes para organismos públicos, entidades financieras o particulares",
+      "Pedidos rápidos y seguros",
+      "Retiro por el local",
+      "Envíos en la zona",
+      "Empaques pensados para mantener el sabor",
     ],
-    icon: <FileText size={28} />,
+    icon: <Truck size={26} />,
   },
 ];
 
@@ -70,37 +72,19 @@ const PracticeAreas: React.FC = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const renderArea = (area: PracticeArea) => (
-    <article key={area.id} id={`area-${area.id}`} className={styles.areaCard}>
-      {area.icon && <div className={styles.iconWrapper}>{area.icon}</div>}
-      <h4>{area.title}</h4>
-      <ul className={styles.itemList}>
-        {area.items.map((item, index) => (
-          <li key={index}>
-            <span className={styles.checkCircle}>
-              <FaCheck size={10} />
-            </span>
-            {item}
-          </li>
-        ))}
-      </ul>
-    </article>
-  );
-
   return (
     <section id="section-practiceareas" className={styles.practiceAreasSection}>
       <FadeInOnScroll>
         <div className={styles.badgeWrapper}>
           <span className={styles.badge}>
-            <Layers size={18} style={{ marginRight: "0.4rem" }} />
-            Nuestros servicios
+            <Layers size={18} />
+            Nuestra propuesta
           </span>
         </div>
 
         <p className={styles.description}>
-          Brindo asesoramiento integral en materia impositiva, contable, laboral
-          y empresarial, adaptado a las necesidades de cada cliente —ya sea
-          emprendedor, profesional o empresa consolidada.
+          Ingredientes de calidad, recetas propias y una experiencia pensada
+          para disfrutar hamburguesas hechas al momento, como tienen que ser.
         </p>
       </FadeInOnScroll>
 
@@ -108,8 +92,37 @@ const PracticeAreas: React.FC = () => {
         {isMobile ? (
           <PracticeAreasMobile practiceAreas={practiceAreas} />
         ) : (
-          <div className={styles.gridDesktop}>
-            {practiceAreas.map(renderArea)}
+          <div className={styles.editorialLayout}>
+            {/* Imagen editorial */}
+            <div className={styles.editorialImage}>
+              <Image
+                src="/images/Hamburguesas3.png"
+                alt="Hamburguesa artesanal premium"
+                fill
+                priority
+              />
+            </div>
+
+            {/* Contenido */}
+            <div className={styles.editorialContent}>
+              {practiceAreas.map((area) => (
+                <div key={area.id} className={styles.editorialBlock}>
+                  <div className={styles.editorialHeader}>
+                    {area.icon}
+                    <h4>{area.title}</h4>
+                  </div>
+
+                  <ul>
+                    {area.items.map((item, index) => (
+                      <li key={index}>
+                        <FaCheck size={12} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </FadeInOnScroll>

@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
       <div className={styles.floatingCenterLogo}>
         <div className={styles.centerIconWrapper}>
           <Image
-            src="/icons/LogoVersionA1.png"
+            src="/icons/LogoHamburguesas.png"
             alt="Logo central"
             fill
             style={{ objectFit: "contain" }}

@@ -19,25 +19,25 @@ interface Props {
 const PracticeAreasMobile: React.FC<Props> = ({ practiceAreas }) => {
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
-    slides: { perView: 1, spacing: 16 },
+    slides: { perView: 1, spacing: 18 },
   });
 
   return (
     <div ref={sliderRef} className={`keen-slider ${styles.sliderMobile}`}>
       {practiceAreas.map((area) => (
-        <article
-          key={area.id}
-          id={`area-${area.id}`}
-          className={`keen-slider__slide ${styles.areaCard}`}
-        >
-          {area.icon && <div className={styles.iconWrapper}>{area.icon}</div>}
-          <h4>{area.title}</h4>
-          <ul className={styles.itemList}>
-            {area.items.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </article>
+        <div key={area.id} className={`keen-slider__slide ${styles.slide}`}>
+          <article className={styles.areaCard}>
+            {area.icon && <div className={styles.iconWrapper}>{area.icon}</div>}
+
+            <h4>{area.title}</h4>
+
+            <ul className={styles.itemList}>
+              {area.items.slice(0, 4).map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        </div>
       ))}
     </div>
   );

@@ -1,0 +1,73 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 1100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: linear-gradient(160deg, #0f0f0f, #171717);
+  border-radius: 22px;
+  padding: 1.8rem;
+  width: 95%;
+  max-width: 480px;
+  color: #f5f5f5;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
+}
+
+.header {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.itemName {
+  font-size: 0.95rem;
+}
+
+.itemControls {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.controlButton {
+  background: #1f1f1f;
+  border: none;
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.total {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #cfa24a;
+  text-align: right;
+}
+
+.checkout {
+  margin-top: 1.2rem;
+  width: 100%;
+  background: linear-gradient(135deg, #cfa24a, #a97f2d);
+  border: none;
+  border-radius: 16px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #111;
+  cursor: pointer;
+}

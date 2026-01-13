@@ -1,128 +1,123 @@
 .footer {
   background-color: #ffffff;
   color: #111111;
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem 1.5rem;
   font-family: var(--font-rethink-sans);
-  font-weight: 400;
 }
+
+/* ---------------- CONTENT ---------------- */
 
 .content {
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  margin-bottom: 1.5rem;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-bottom: 2rem;
 }
+
+/* ---------------- SECTIONS ---------------- */
 
 .section {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
-.title {
-  font-size: 1rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #8d6b24;
-  font-family: var(--font-rethink-sans);
+/* BRAND DESCRIPTION */
+
+.description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #2a2a2a;
+  max-width: 360px;
 }
+
+/* ---------------- TITLES ---------------- */
 
 .subtitle {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #114137;
-  border-bottom: 1px solid rgba(17, 65, 55, 0.25);
-  padding-bottom: 0.2rem;
-  margin-bottom: 0.5rem;
-  font-family: var(--font-rethink-sans);
-}
-
-.description {
-  font-size: 0.9rem;
-  line-height: 1.4;
   color: #111111;
-  font-family: var(--font-rethink-sans);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
-.list {
+/* ---------------- LISTS ---------------- */
+
+.list,
+.infoList {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.list li {
-  margin-bottom: 0.4rem;
+.list li,
+.infoList li {
   font-size: 0.9rem;
-  font-family: var(--font-rethink-sans);
+  color: #333333;
+  margin-bottom: 0.45rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.list li a,
+/* ---------------- LINKS ---------------- */
+
 .linkButton {
   background: none;
   border: none;
   padding: 0;
-  margin: 0;
   font: inherit;
-  color: #114137;
+  color: #111111;
   cursor: pointer;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  text-align: left;
+  transition: color 0.25s ease, transform 0.2s ease;
 }
 
-.list li a:hover,
 .linkButton:hover {
   color: #8d6b24;
-  text-decoration: underline;
+  transform: translateX(2px);
 }
 
-.bottomBar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top: 1px solid rgba(17, 65, 55, 0.25);
-  padding-top: 1rem;
-}
-
-.copy {
-  font-size: 0.8rem;
-  color: #114137;
-  text-align: center;
-  width: 100%;
-  font-family: var(--font-rethink-sans);
-  font-weight: 400;
-}
+/* ---------------- ICONS ---------------- */
 
 .iconWrapper {
   display: flex;
-  justify-content: center;
-  margin-bottom: 0.3rem;
+  justify-content: flex-start;
+  margin-bottom: 0.4rem;
 }
 
 .icon {
-  width: 140px;
+  width: 160px;
   height: auto;
   object-fit: contain;
 }
 
-.section:first-child {
-  gap: 0.2rem;
+/* iconos lucide / react-icons */
+.infoIcon {
+  font-size: 1rem;
+  color: #8d6b24;
 }
 
-@media (min-width: 769px) {
-  .iconWrapper {
-    justify-content: flex-start;
-  }
+/* ---------------- BOTTOM BAR ---------------- */
 
-  .icon {
-    width: 180px;
-  }
-
-  .section:first-child {
-    text-align: left;
-  }
+.bottomBar {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
 }
+
+.copy {
+  font-size: 0.8rem;
+  color: #555555;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
 
 @media (max-width: 768px) {
   .content {
@@ -130,10 +125,30 @@
     text-align: center;
   }
 
-  .title,
-  .subtitle,
-  .description,
-  .list li {
+  .section {
+    align-items: center;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+
+  .linkButton {
+    text-align: center;
+  }
+
+  .list li,
+  .infoList li {
     justify-content: center;
+  }
+
+  .iconWrapper {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 769px) {
+  .icon {
+    width: 180px;
   }
 }

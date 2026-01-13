@@ -5,9 +5,9 @@ import Image from "next/image";
 import styles from "../../styles/ImageCarousel.module.css";
 
 const images = [
-  "/images/Hamburguesas.png",
+  "/images/Hamburguesas5.png",
   "/images/Hamburguesas1.png",
-  "/images/Hamburguesas2.png",
+  "/images/Hamburguesa4.png",
   "/images/Hamburguesas3.png",
 ];
 

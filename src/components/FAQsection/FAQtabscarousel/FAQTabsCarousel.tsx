@@ -7,61 +7,82 @@ import { FadeInOnScroll } from "../../shared/fadeInonscroll";
 
 const faqItems = [
   {
-    category: "General",
+    category: "Pedidos",
     questions: [
       {
-        question: "¿Qué servicios ofrece el estudio contable?",
+        question: "¿Cómo puedo hacer un pedido?",
         answer:
-          "Brindamos asesoramiento integral en materia impositiva, laboral, contable y societaria.",
+          "Podés pedir directamente desde nuestra web o por WhatsApp. Elegís tu hamburguesa, el combo y listo.",
       },
       {
-        question: "¿Realizan alta y liquidación del servicio domestico?",
-        answer: "Si, generamos la inscripción y analizamos cada caso",
+        question: "¿Puedo personalizar mi hamburguesa?",
+        answer:
+          "Sí, podés sumar ingredientes o quitar los que no te gusten. Queremos que la disfrutes a tu manera.",
       },
       {
-        question: "¿Cómo puedo solicitar una consulta?",
+        question: "¿Aceptan pedidos grandes o para eventos?",
         answer:
-          "Podés contactarnos por WhatsApp, correo electrónico o completando el formulario en la web.",
+          "Sí, realizamos pedidos especiales con anticipación. Contactanos y lo armamos juntos.",
       },
     ],
   },
   {
-    category: "Monotributo",
+    category: "Productos",
     questions: [
       {
-        question: "¿Cómo me doy de alta en el Monotributo?",
+        question: "¿Qué tipo de carne usan?",
         answer:
-          "Realizamos el alta completa, asignación de categoría y configuración de facturación.",
+          "Usamos carne 100% vacuna seleccionada, preparada a diario para garantizar sabor y calidad.",
       },
       {
-        question: "¿Cada cuánto se hace la recategorización?",
+        question: "¿El pan es artesanal?",
         answer:
-          "Dos veces al año: en enero y julio, según los ingresos y actividad facturada.",
+          "Sí, trabajamos con pan artesanal horneado todos los días especialmente para nuestras hamburguesas.",
       },
       {
-        question: "¿Qué pasa si me recategorizan de oficio?",
+        question: "¿Tienen opciones vegetarianas?",
         answer:
-          "Podemos revisar el caso y realizar el descargo si corresponde, para corregir la categoría.",
+          "Estamos incorporando opciones sin carne y alternativas especiales. Consultanos por disponibilidad.",
       },
     ],
   },
   {
-    category: "Sociedades",
+    category: "Delivery",
     questions: [
       {
-        question: "¿Qué tipo de sociedad me conviene?",
+        question: "¿Hacen envíos a domicilio?",
         answer:
-          "Depende del proyecto: SAS, SRL y SA son las más comunes. Analizamos tu situación y te asesoramos.",
+          "Sí, realizamos delivery en la zona para que disfrutes nuestras hamburguesas donde estés.",
       },
       {
-        question: "¿Ustedes realizan constitución de empresas?",
+        question: "¿Puedo retirar el pedido en el local?",
         answer:
-          "Sí, gestionamos todo el proceso: estatuto, inscripción, CUIT, libros contables y alta impositiva.",
+          "Claro, podés hacer tu pedido y pasar a retirarlo cuando esté listo.",
       },
       {
-        question: "¿Hacen balances y certificaciones contables?",
+        question: "¿Cómo llega el pedido?",
         answer:
-          "Sí, elaboramos balances anuales, informes contables y certificaciones para bancos o ARCA.",
+          "Utilizamos empaques diseñados para conservar el sabor, la textura y la temperatura.",
+      },
+    ],
+  },
+  {
+    category: "Experiencia",
+    questions: [
+      {
+        question: "¿Qué hace especiales a sus hamburguesas?",
+        answer:
+          "La combinación de ingredientes de calidad, recetas propias y preparación al momento.",
+      },
+      {
+        question: "¿Las hamburguesas se hacen en el momento?",
+        answer:
+          "Sí, todas nuestras hamburguesas se cocinan al momento para asegurar frescura y sabor.",
+      },
+      {
+        question: "¿Tienen promociones o combos?",
+        answer:
+          "Sí, ofrecemos combos y promociones especiales que se actualizan periódicamente.",
       },
     ],
   },

@@ -16,8 +16,8 @@ const FAQSection: React.FC = () => {
         </div>
 
         <p className={styles.description}>
-          Encontrá respuestas a las preguntas más comunes sobre asesoría
-          contable, impositiva y financiera.
+          Todo lo que necesitás saber antes de hacer tu pedido y disfrutar
+          nuestras hamburguesas artesanales.
         </p>
 
         <FAQTabsCarousel />
