@@ -1,12 +1,21 @@
+/* ======================================================
+   FAQ SECTION — BLANCO / NEGRO / ROJO
+====================================================== */
+
 .faqSection {
   position: relative;
   overflow: hidden;
   padding: 5rem 1.5rem 6.5rem;
-  background-color: #c8ae7d;
+  background-color: #f5f5f5;
   text-align: center;
   z-index: 0;
   scroll-margin-top: 15px;
+  font-family: var(--font-rethink-sans);
 }
+
+/* =============================
+   BADGE
+============================= */
 
 .badge {
   display: inline-flex;
@@ -14,28 +23,32 @@
   gap: 0.55rem;
   background: linear-gradient(
     135deg,
-    #b79c67 0%,
-    #c0a574 20%,
-    #c8ae7d 50%,
-    #d6c39a 80%,
-    #b79c67 100%
+    #5f1411,
+    #8c1d18,
+    #b42a24,
+    #8c1d18,
+    #5f1411
   );
   padding: 0.55rem 1.15rem;
   border-radius: 9999px;
   font-size: 1.05rem;
   font-weight: 700;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  outline: 3px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  outline: 3px solid rgba(0, 0, 0, 0.08);
   outline-offset: -3px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
   margin-bottom: 2.2rem;
 }
 
+/* =============================
+   TITLE
+============================= */
+
 .title {
   font-size: 2.65rem;
-  font-family: var(--font-rethink-sans);
   font-weight: 700;
-  color: #fff;
+  color: #121212;
   margin-bottom: 1.8rem;
   position: relative;
   z-index: 2;
@@ -44,7 +57,7 @@
 .title::after {
   content: "⬥";
   display: block;
-  color: #315c52;
+  color: #8c1d18;
   font-size: 1.25rem;
   margin: 0.55rem auto 0;
   opacity: 0.9;
@@ -52,28 +65,34 @@
 
 .title span:first-child,
 .title span:last-child {
-  color: #315c52;
+  color: #8c1d18;
 }
+
+/* =============================
+   DESCRIPTION
+============================= */
 
 .description {
   font-size: 1.18rem;
-  font-family: var(--font-rethink-sans);
-  font-weight: 300;
-  color: #315c52;
+  font-weight: 400;
+  color: #121212;
   line-height: 1.7;
-  letter-spacing: 0.35px;
-  opacity: 0.95;
+  letter-spacing: 0.3px;
   max-width: 780px;
   margin: 0 auto 3.4rem;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.95);
   padding: 1.8rem 1.4rem;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  outline: 4px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  outline: 4px solid rgba(0, 0, 0, 0.06);
   outline-offset: -5px;
   backdrop-filter: blur(6px);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
 }
+
+/* =============================
+   RESPONSIVE
+============================= */
 
 @media (max-width: 768px) {
   .faqSection {

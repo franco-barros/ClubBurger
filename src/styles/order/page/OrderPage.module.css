@@ -1,10 +1,12 @@
 .orderPage {
   min-height: 100vh;
-  background: #315c52;
-  color: #f5e3c0;
+  background: #0d0d0d; /* negro principal */
+  color: #ffffff;
   padding: 4rem 1.5rem;
   font-family: var(--font-rethink-sans);
 }
+
+/* ---------------- HEADER ---------------- */
 
 .header {
   text-align: center;
@@ -17,13 +19,17 @@
   font-weight: 800;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
+  color: #ffffff;
+  letter-spacing: 0.4px;
 }
 
 .header p {
   font-size: 1.05rem;
   line-height: 1.6;
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.85);
 }
+
+/* ---------------- CONTENT GRID ---------------- */
 
 .content {
   display: grid;
@@ -33,21 +39,37 @@
   margin: 0 auto;
 }
 
+/* ---------------- CARDS ---------------- */
+
 .card {
-  background: #c8ae7d;
-  color: #315c52;
+  background: #111111; /* negro card */
+  color: #ffffff;
   padding: 2rem 1.6rem;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
+
+  border: 1px solid rgba(200, 30, 30, 0.35); /* rojo */
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #c81e1e;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
 }
 
 .card h3 {
   font-size: 1.2rem;
   margin-bottom: 0.6rem;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .card p {
   font-size: 0.95rem;
   line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
 }

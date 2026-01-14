@@ -1,10 +1,10 @@
 .navbar {
-  --primary: #0e3b30;
-  --accent: #c7ae7d;
+  --primary: #8c1d18; /* rojo marca */
+  --primary-dark: #5f1411;
   --text: #ffffff;
-  --background-solid: #c7ae7d;
-  --background-blur: rgba(199, 174, 125, 0.85);
-  --border: rgba(14, 59, 48, 0.25);
+  --background-solid: #121212; /* negro sólido */
+  --background-blur: rgba(18, 18, 18, 0.85);
+  --border: rgba(255, 255, 255, 0.08);
 
   position: fixed;
   top: 0;
@@ -31,9 +31,11 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
-  border-color: rgba(14, 59, 48, 0.15);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.75);
+  border-color: rgba(255, 255, 255, 0.06);
 }
+
+/* ---------------- CONTAINER ---------------- */
 
 .container {
   max-width: 1200px;
@@ -43,6 +45,8 @@
   align-items: center;
   justify-content: space-between;
 }
+
+/* ---------------- LINKS ---------------- */
 
 .links {
   display: flex;
@@ -55,9 +59,11 @@
   border: none;
   cursor: pointer;
   padding: 0.5rem;
-  color: #f1f1f1 !important;
+
+  color: var(--text) !important;
   font-size: 0.95rem;
   font-weight: 500;
+
   transition: color 0.25s ease, transform 0.2s ease;
   position: relative;
 }
@@ -69,6 +75,7 @@
 
 .activeLink {
   font-weight: 600;
+  color: var(--primary) !important;
 }
 
 .activeLink::after {
@@ -82,19 +89,23 @@
   border-radius: 2px;
 }
 
+/* ---------------- MENU BUTTON (MOBILE) ---------------- */
+
 .menuButton {
   display: none;
   background: none;
   border: none;
   font-size: 1.6rem;
   cursor: pointer;
-  color: #f1f1f1 !important;
+  color: var(--text) !important;
   transition: color 0.2s ease;
 }
 
 .menuButton:hover {
   color: var(--primary);
 }
+
+/* ---------------- LOGOS FLOTANTES ---------------- */
 
 .floatingLeftLogo {
   position: fixed;
@@ -125,6 +136,8 @@
   width: 46px;
   height: 46px;
 }
+
+/* ---------------- RESPONSIVE ---------------- */
 
 @media (max-width: 768px) {
   .container {

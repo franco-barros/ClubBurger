@@ -1,16 +1,22 @@
+/* ======================================================
+   PRACTICE AREAS — NEGRO / ROJO / BLANCO
+====================================================== */
+
 .practiceAreasSection {
   position: relative;
   overflow: hidden;
-  --pa-bg: #315c52;
-  --pa-text: #000;
-  --pa-gold-1: #c8ae7d;
-  --pa-gold-2: #c8ae7d;
-  --pa-gold-3: #c8ae7d;
-  --pa-soft: rgba(255, 255, 255, 0.1);
+
+  --red-primary: #8c1d18;
+  --red-dark: #5f1411;
+  --white-soft: #f5f5f5;
+  --black-carbon: #121212;
+
+  --pa-soft: rgba(255, 255, 255, 0.08);
   --pa-soft-border: rgba(255, 255, 255, 0.18);
+
   padding: 2rem 1rem;
-  background-color: var(--pa-bg);
-  color: var(--pa-text);
+  background-color: var(--black-carbon);
+  color: var(--white-soft);
   font-family: var(--font-rethink-sans);
   scroll-margin-top: 25px;
 }
@@ -19,6 +25,10 @@
 .practiceAreasSection::after {
   content: none;
 }
+
+/* =============================
+   BADGE
+============================= */
 
 .badgeWrapper {
   text-align: center;
@@ -34,37 +44,41 @@
   gap: 0.55rem;
   background: linear-gradient(
     135deg,
-    #b79c67 0%,
-    #c0a574 20%,
-    #c8ae7d 50%,
-    #d6c39a 80%,
-    #b79c67 100%
+    var(--red-dark),
+    var(--red-primary),
+    #b42a24,
+    var(--red-primary),
+    var(--red-dark)
   );
   padding: 0.55rem 1.15rem;
   border-radius: 9999px;
   font-size: 1.05rem;
   font-weight: 700;
+  color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.28);
   outline: 3px solid rgba(255, 255, 255, 0.15);
   outline-offset: -3px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
   margin-bottom: 2.2rem;
 }
 
+/* =============================
+   DESCRIPTION
+============================= */
+
 .description {
   position: relative;
-  background: rgba(0, 0, 0, 0.32);
+  background: rgba(18, 18, 18, 0.85);
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
   padding: 2.2rem 1.8rem;
   border-radius: 18px;
   max-width: 750px;
   margin: 0 auto 2.6rem;
-  border: 2px solid rgba(200, 174, 125, 0.55);
-  outline: 4px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid var(--red-primary);
+  outline: 4px solid rgba(255, 255, 255, 0.12);
   outline-offset: -6px;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
-  color: #f2e8d6;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55);
+  color: var(--white-soft);
   font-size: 1.07rem;
   line-height: 1.7;
   text-align: center;
@@ -77,9 +91,13 @@
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.4rem;
-  color: #c8ae7d;
+  color: var(--red-primary);
   opacity: 0.9;
 }
+
+/* =============================
+   GRID / SLIDER
+============================= */
 
 .gridDesktop {
   display: none;
@@ -105,16 +123,20 @@
   }
 }
 
+/* =============================
+   AREA CARD
+============================= */
+
 .areaCard {
-  background: var(--pa-gold-1);
+  background: rgba(255, 255, 255, 0.92);
   padding: 1.8rem 1.4rem;
   border-radius: 16px;
 
-  border: 2px solid var(--pa-gold-1);
-  outline: 4px solid rgba(255, 255, 255, 0.28);
+  border: 2px solid var(--red-primary);
+  outline: 4px solid rgba(0, 0, 0, 0.12);
   outline-offset: -6px;
 
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(6px);
 
   transition: all 0.28s ease;
@@ -122,8 +144,12 @@
 
 .areaCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
 }
+
+/* =============================
+   ICONS & TEXT
+============================= */
 
 .iconWrapper {
   display: flex;
@@ -131,16 +157,16 @@
   justify-content: center;
   width: 52px;
   height: 52px;
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(0, 0, 0, 0.06);
   border-radius: 18px;
   margin: 0 auto 0.9rem;
-  border: 1px solid var(--pa-soft-border);
-  color: #315c52;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  color: var(--red-primary);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
 }
 
 .areaCard h4 {
-  color: #315c52;
+  color: var(--black-carbon);
   font-weight: 700;
   margin-bottom: 0.9rem;
   font-size: 1.2rem;
@@ -160,7 +186,7 @@
   margin-bottom: 0.55rem;
   font-size: 0.95rem;
   line-height: 1.55;
-  color: #315c52;
+  color: var(--black-carbon);
 }
 
 .checkCircle {
@@ -171,9 +197,9 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.12);
-  color: #315c52;
-  border: 1px solid #315c52;
+  background-color: rgba(0, 0, 0, 0.08);
+  color: var(--red-primary);
+  border: 1px solid var(--red-primary);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
 }
 
@@ -194,7 +220,7 @@
   height: 520px;
   border-radius: 2rem;
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
 .editorialImage img {
@@ -208,28 +234,18 @@
   gap: 2.4rem;
 }
 
-.editorialBlock {
-  padding-bottom: 0.4rem;
-}
-
 .editorialHeader {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 0.7rem;
-  color: #c8ae7d;
+  color: var(--red-primary);
 }
 
 .editorialHeader h4 {
   font-size: 1.22rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-}
-
-.editorialBlock ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .editorialBlock li {
@@ -239,16 +255,19 @@
   margin-bottom: 0.45rem;
   font-size: 0.96rem;
   line-height: 1.55;
-  color: #f2e8d6;
+  color: var(--white-soft);
   opacity: 0.9;
 }
 
 .editorialBlock li svg {
   margin-top: 0.15rem;
-  color: #c8ae7d;
+  color: var(--red-primary);
 }
 
-/* Responsive */
+/* =============================
+   RESPONSIVE
+============================= */
+
 @media (max-width: 1024px) {
   .editorialLayout {
     grid-template-columns: 1fr;

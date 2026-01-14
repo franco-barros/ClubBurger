@@ -1,5 +1,5 @@
 /* ================================
-   TABS PREMIUM
+   TABS PREMIUM — FAQ (HIJO)
 ================================ */
 
 .tabList {
@@ -7,59 +7,57 @@
   justify-content: center;
   gap: 0.8rem;
   flex-wrap: wrap;
-  margin-bottom: 1.8rem;
+  margin-bottom: 2rem;
 }
 
-/* TAB estilo tarjeta premium */
+/* Tab estilo vidrio premium */
 .tabItem {
   position: relative;
   padding: 0.75rem 1.5rem;
 
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.22);
   border-radius: 14px;
   backdrop-filter: blur(8px);
 
-  /* Doble borde sutil estilo boutique */
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  outline: 3px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  outline: 3px solid rgba(255, 255, 255, 0.2);
   outline-offset: -4px;
 
-  color: #114137;
+  color: #111;
   font-family: var(--font-raleway);
   font-size: 1rem;
   font-weight: 600;
-  cursor: pointer;
 
+  cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .tabItem:hover {
   transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.32);
 }
 
-/* TAB activo */
+/* Tab activo */
 .tabItemActive {
-  background: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.42);
+  color: #b11212; /* rojo premium */
   font-weight: 700;
-  color: #8d6b24;
 
-  border-color: rgba(200, 174, 125, 0.65);
-  outline-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(177, 18, 18, 0.6);
+  outline-color: rgba(255, 255, 255, 0.35);
 }
 
-/* Línea inferior premium */
+/* Línea inferior roja */
 .tabItem::after {
   content: "";
   display: block;
   height: 3px;
-
-  background: linear-gradient(90deg, #a78a55, #c8ae7d, #d4c29a);
-
-  margin: 6px auto 0;
   width: 0;
-  border-radius: 4px;
+  margin: 6px auto 0;
 
+  background: linear-gradient(90deg, #6d0f0f, #b11212, #e04545);
+
+  border-radius: 4px;
   transition: width 0.3s ease;
 }
 
@@ -68,75 +66,85 @@
 }
 
 /* ================================
-   PREGUNTAS PREMIUM
+   LISTA DE PREGUNTAS — PREMIUM
 ================================ */
 
 .questionList {
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  max-width: 750px;
+  max-width: 760px;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.1rem;
+  gap: 1.2rem;
 }
 
+/* Tarjeta pregunta */
 .questionItem {
   width: 100%;
   border-radius: 18px;
-  padding: 1.3rem 1.6rem;
+  padding: 1.35rem 1.6rem;
+
   background: linear-gradient(
     135deg,
-    rgba(199, 174, 125, 0.55),
-    rgba(240, 225, 190, 0.55)
+    rgba(255, 255, 255, 0.92),
+    rgba(245, 245, 245, 0.92)
   );
-  border: 2px solid rgba(200, 174, 125, 0.55);
-  outline: 4px solid rgba(255, 255, 255, 0.22);
+
+  border: 2px solid rgba(0, 0, 0, 0.35);
+  outline: 4px solid rgba(255, 255, 255, 0.35);
   outline-offset: -6px;
-  backdrop-filter: blur(10px);
+
+  backdrop-filter: blur(8px);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+  gap: 1rem;
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
   cursor: pointer;
   transition: all 0.28s ease;
 }
 
 .questionItem:hover {
   transform: translateY(-3px);
-  background: linear-gradient(
-    135deg,
-    rgba(220, 190, 140, 0.65),
-    rgba(255, 240, 200, 0.65)
-  );
-  border-color: rgba(200, 174, 125, 0.75);
-  outline-color: rgba(255, 255, 255, 0.28);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+
+  background: linear-gradient(135deg, #ffffff, #f1f1f1);
+
+  border-color: rgba(177, 18, 18, 0.6);
+  outline-color: rgba(255, 255, 255, 0.45);
+
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
 }
 
+/* Texto de pregunta */
 .questionText {
-  color: #114137;
+  color: #111;
   font-family: var(--font-inter);
   font-weight: 600;
   font-size: 1.08rem;
 }
 
+/* Respuesta */
 .answerText {
   max-width: 650px;
+  margin: 0 auto;
+  padding-top: 0.7rem;
+
   text-align: center;
-  padding-top: 0.6rem;
-  color: #114137;
+  color: #222;
   font-family: var(--font-inter);
-  font-weight: 400;
   font-size: 1rem;
   line-height: 1.55;
+
   opacity: 0.95;
 }
 
+/* Chevron */
 .chevron {
-  color: #114137;
+  color: #b11212;
   opacity: 0.9;
   transition: transform 0.28s ease, opacity 0.22s ease;
 }
@@ -144,4 +152,23 @@
 .chevronOpen {
   transform: rotate(180deg);
   opacity: 1;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 520px) {
+  .questionItem {
+    padding: 1.2rem 1.3rem;
+  }
+
+  .questionText {
+    font-size: 1rem;
+  }
+
+  .tabItem {
+    padding: 0.65rem 1.3rem;
+    font-size: 0.95rem;
+  }
 }
