@@ -8,7 +8,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.7rem;
 
   cursor: pointer;
   transition: transform 0.35s ease, box-shadow 0.35s ease,
@@ -21,51 +21,69 @@
   box-shadow: 0 25px 55px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(200, 30, 30, 0.35);
 }
 
-/* ---------------- TEXT ---------------- */
+/* ---------------- HEADER ---------------- */
+
+.header {
+  display: flex;
+  align-items: center;
+}
 
 .title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+
   font-size: 1.1rem;
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 0.3px;
 }
 
+.titleIcon {
+  color: #c81e1e;
+}
+
+/* ---------------- DESCRIPTION ---------------- */
+
 .description {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
-/* ---------------- PRICE ---------------- */
+/* ---------------- FOOTER ---------------- */
 
-.price {
-  margin-top: 0.3rem;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #c81e1e; /* rojo protagonista */
-}
-
-/* ---------------- ACTIONS ---------------- */
-
-.actions {
-  margin-top: 0.8rem;
+.footer {
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* ---------------- PRICE ---------------- */
+
+.price {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #c81e1e;
+}
+
 /* ---------------- BUTTON ---------------- */
 
 .addButton {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+
   background: #c81e1e;
   border: none;
   border-radius: 12px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.9rem;
 
   color: #ffffff;
   font-weight: 700;
   font-size: 0.85rem;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.3px;
 
   cursor: pointer;
   box-shadow: 0 6px 16px rgba(200, 30, 30, 0.35);

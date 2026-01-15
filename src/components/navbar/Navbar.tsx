@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import AnimatedMenuOverlay from "../animations/animatedmenuoverlay";
 import styles from "../../styles/Navbar.module.css";
 
@@ -9,6 +10,8 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+
+  const router = useRouter();
 
   const navLinks = useMemo(
     () => [
@@ -42,13 +45,14 @@ const Navbar: React.FC = () => {
 
       for (let i = navLinks.length - 1; i >= 0; i--) {
         const section = document.getElementById(navLinks[i].id);
-        if (section) {
-          const top = section.offsetTop;
-          const bottom = top + section.offsetHeight;
-          if (midpoint >= top && midpoint < bottom) {
-            setActiveSection(navLinks[i].id);
-            break;
-          }
+        if (!section) continue;
+
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+
+        if (midpoint >= top && midpoint < bottom) {
+          setActiveSection(navLinks[i].id);
+          break;
         }
       }
     };
@@ -65,25 +69,22 @@ const Navbar: React.FC = () => {
 
   return (
     <>
+      {/* BOTÓN ORDENAR */}
       <button
-        onClick={() => scrollToSection("hero")}
-        className={styles.floatingLeftLogo}
+        className={styles.cartButtonFloating}
+        aria-label="Ordenar"
+        onClick={() => router.push("/order")}
       >
-        <div className={styles.leftIconWrapper}>
-          <Image
-            src="/icons/LogoC2.png"
-            alt="Logo izquierdo"
-            fill
-            style={{ objectFit: "contain" }}
-          />
-        </div>
+        <span className={styles.cartIcon}>🛒</span>
+        <span className={styles.cartText}>Ordenar</span>
       </button>
 
+      {/* LOGO CENTRAL */}
       <div className={styles.floatingCenterLogo}>
         <div className={styles.centerIconWrapper}>
           <Image
             src="/icons/LogoHamburguesas.png"
-            alt="Logo central"
+            alt="Logo"
             fill
             style={{ objectFit: "contain" }}
           />

@@ -18,6 +18,10 @@ interface CartContextType {
   openProduct: (product: Product) => void;
   closeProduct: () => void;
 
+  isCartOpen: boolean;
+  openCart: () => void;
+  closeCart: () => void;
+
   totalItems: number;
   totalPrice: number;
 }
@@ -27,6 +31,9 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [items, setItems] = useState<CartItem[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  /* ---------------- CART LOGIC ---------------- */
 
   const addItem = (product: Product) => {
     setItems((prev) => {
@@ -52,7 +59,12 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     );
   };
 
-  const clearCart = () => setItems([]);
+  const clearCart = () => {
+    setItems([]);
+    setIsCartOpen(false); // ✅ clave
+  };
+
+  /* ---------------- PRODUCT MODAL ---------------- */
 
   const openProduct = (product: Product) => {
     setSelectedProduct(product);
@@ -61,6 +73,13 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const closeProduct = () => {
     setSelectedProduct(null);
   };
+
+  /* ---------------- CART MODAL ---------------- */
+
+  const openCart = () => setIsCartOpen(true);
+  const closeCart = () => setIsCartOpen(false);
+
+  /* ---------------- TOTALS ---------------- */
 
   const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
 
@@ -80,6 +99,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         selectedProduct,
         openProduct,
         closeProduct,
+
+        isCartOpen,
+        openCart,
+        closeCart,
 
         totalItems,
         totalPrice,

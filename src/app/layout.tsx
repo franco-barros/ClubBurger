@@ -17,8 +17,9 @@ const jolly = Jolly_Lodger({
 });
 
 export const metadata = {
-  title: "Paula Martínez Contadora Pública",
-  description: "Asesoramiento contable para decisiones seguras y eficientes.",
+  title: "El Club de la Burger",
+  description:
+    "Hamburguesas artesanales, ingredientes premium y pedidos directos por WhatsApp. Sumate al club.",
 };
 
 export default function RootLayout({
@@ -27,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${rethinkSans.variable} ${jolly.variable}`}>
       <head>
-        <link rel="icon" href="/icons/LogoA2.png" sizes="any" />
+        <link rel="icon" href="/icons/LogoHamburguesas.png" sizes="any" />
       </head>
 
       <body>

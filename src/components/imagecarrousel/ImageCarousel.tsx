@@ -6,7 +6,6 @@ import styles from "../../styles/ImageCarousel.module.css";
 
 const images = [
   "/images/Hamburguesas5.png",
-  "/images/Hamburguesas1.png",
   "/images/Hamburguesa4.png",
   "/images/Hamburguesas3.png",
 ];

@@ -23,31 +23,143 @@
 
   border: 1px solid rgba(200, 30, 30, 0.3);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
-
-  animation: modalIn 0.35s ease;
-}
-
-@keyframes modalIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
 }
 
 /* ---------------- HEADER ---------------- */
 
 .header {
-  font-size: 1.3rem;
-  font-weight: 800;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
-  letter-spacing: 0.4px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.25s ease, transform 0.2s ease;
+}
+
+.closeButton:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ---------------- FORM ---------------- */
+
+.form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.field {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 0.6rem 0.7rem;
+}
+
+.field svg {
+  margin-top: 0.2rem;
+  opacity: 0.7;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 0.85rem;
+  resize: none;
+  outline: none;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ---------------- PAYMENT ---------------- */
+
+.payment {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.payment span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  opacity: 0.75;
+}
+
+.paymentOptions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.paymentButton {
+  flex: 1;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 0.45rem 0.6rem;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease,
+    border-color 0.25s ease, transform 0.2s ease;
+}
+
+.paymentButton:hover {
+  background: #2a2a2a;
+  transform: translateY(-1px);
+}
+
+.paymentActive {
+  flex: 1;
+  background: rgba(200, 30, 30, 0.15);
+  border: 1px solid #c81e1e;
+  border-radius: 12px;
+  padding: 0.45rem 0.6rem;
+
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #ffffff;
+
+  box-shadow: 0 6px 18px rgba(200, 30, 30, 0.35);
 }
 
 /* ---------------- ITEMS ---------------- */
+
+.list {
+  margin-top: 0.8rem;
+}
 
 .item {
   display: flex;
@@ -65,9 +177,16 @@
 
 /* ---------------- CONTROLS ---------------- */
 
-.itemControls {
+.controls {
   display: flex;
+  align-items: center;
   gap: 0.4rem;
+}
+
+.quantity {
+  min-width: 1.2rem;
+  text-align: center;
+  font-weight: 700;
 }
 
 .controlButton {
@@ -75,9 +194,8 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
 
-  padding: 0.3rem 0.6rem;
+  padding: 0.35rem 0.5rem;
   color: #ffffff;
-  font-weight: 700;
 
   cursor: pointer;
   transition: background-color 0.25s ease, transform 0.2s ease,
@@ -90,34 +208,69 @@
   transform: scale(1.05);
 }
 
-/* ---------------- TOTAL ---------------- */
+/* ---------------- FOOTER ---------------- */
+
+.footer {
+  margin-top: 1.2rem;
+}
 
 .total {
-  margin-top: 1rem;
   font-size: 1.1rem;
   font-weight: 800;
   text-align: right;
-  color: #ffffff;
 }
 
 .total span {
   color: #c81e1e;
 }
 
-/* ---------------- CHECKOUT ---------------- */
+/* ---------------- ACTIONS ---------------- */
 
-.checkout {
-  margin-top: 1.2rem;
-  width: 100%;
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
 
+.clearButton {
+  flex: 1;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 0.7rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.clearButton:hover {
+  background: #2a2a2a;
+  transform: translateY(-1px);
+}
+
+.sendButton {
+  flex: 2;
   background: #c81e1e;
   border: none;
-  border-radius: 16px;
-  padding: 0.8rem;
+  border-radius: 14px;
+  padding: 0.7rem;
 
-  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+
+  font-size: 0.95rem;
   font-weight: 800;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.3px;
   color: #ffffff;
 
   cursor: pointer;
@@ -127,7 +280,7 @@
     box-shadow 0.25s ease;
 }
 
-.checkout:hover {
+.sendButton:hover {
   background: #e02626;
   transform: translateY(-2px);
   box-shadow: 0 14px 30px rgba(200, 30, 30, 0.65);

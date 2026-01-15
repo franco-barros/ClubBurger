@@ -1,79 +1,117 @@
-.card {
-  background: linear-gradient(145deg, #0f0f0f, #161616);
-  border-radius: 18px;
-  padding: 1.4rem;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55);
+/* ================= OVERLAY ================= */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 1100;
+
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  cursor: pointer;
-
-  border: 1px solid rgba(200, 30, 30, 0.25);
-
-  transition: transform 0.35s ease, box-shadow 0.35s ease,
-    border-color 0.35s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  border-color: #c81e1e;
-  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(200, 30, 30, 0.35);
-}
-
-/* ---------------- TEXT ---------------- */
-
-.title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.3px;
-}
-
-.description {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.4;
-}
-
-/* ---------------- PRICE ---------------- */
-
-.price {
-  margin-top: 0.3rem;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #c81e1e; /* rojo protagonista */
-}
-
-/* ---------------- ACTIONS ---------------- */
-
-.actions {
-  margin-top: 0.8rem;
-  display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
-/* ---------------- BUTTON ---------------- */
+/* ================= MODAL ================= */
 
-.addButton {
-  background: #c81e1e;
-  border: none;
-  border-radius: 12px;
-  padding: 0.5rem 1.1rem;
+.modal {
+  background: linear-gradient(160deg, #0f0f0f, #171717);
+  border-radius: 22px;
+  padding: 1.8rem;
+  width: 95%;
+  max-width: 480px;
+
   color: #ffffff;
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.4px;
-  cursor: pointer;
 
-  box-shadow: 0 6px 16px rgba(200, 30, 30, 0.35);
-
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
-    background-color 0.25s ease;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(200, 30, 30, 0.25);
 }
 
-.addButton:hover {
+/* ================= TEXT ================= */
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.45;
+  margin-bottom: 0.8rem;
+}
+
+/* ================= PRICE ================= */
+
+.price {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #c81e1e;
+  margin-bottom: 1.2rem;
+}
+
+/* ================= ACTIONS ================= */
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* ================= BUTTONS ================= */
+
+.primary,
+.secondary {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+
+  padding: 0.55rem 1.2rem;
+  border-radius: 14px;
+
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.35px;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* CTA principal */
+.primary {
+  background: #c81e1e;
+  color: #ffffff;
+  border: none;
+
+  box-shadow: 0 8px 20px rgba(200, 30, 30, 0.4);
+}
+
+.primary:hover {
   background: #e02626;
   transform: scale(1.06);
-  box-shadow: 0 10px 24px rgba(200, 30, 30, 0.55);
+  box-shadow: 0 12px 28px rgba(200, 30, 30, 0.6);
+}
+
+/* Secundario */
+.secondary {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.secondary:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
 }

@@ -3,31 +3,38 @@
   bottom: 1.2rem;
   right: 1.2rem;
 
-  background: #c81e1e; /* rojo principal */
+  background: linear-gradient(135deg, #c81e1e, #9f1515);
   border: none;
   border-radius: 999px;
 
-  padding: 0.9rem 1.4rem;
+  padding: 0.85rem 1.3rem;
   display: flex;
   align-items: center;
   gap: 0.6rem;
 
-  font-weight: 800;
-  letter-spacing: 0.3px;
   color: #ffffff;
+  font-weight: 800;
 
-  box-shadow: 0 14px 32px rgba(200, 30, 30, 0.55);
+  box-shadow: 0 14px 32px rgba(200, 30, 30, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+
   cursor: pointer;
   z-index: 1200;
 
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
-    background-color 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .button:hover {
-  background: #e02626;
-  transform: scale(1.06);
-  box-shadow: 0 22px 46px rgba(200, 30, 30, 0.7);
+  background: linear-gradient(135deg, #e02626, #b41818);
+  transform: scale(1.07);
+  box-shadow: 0 24px 48px rgba(200, 30, 30, 0.75),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+/* ---------------- ICON ---------------- */
+
+.icon {
+  flex-shrink: 0;
 }
 
 /* ---------------- COUNT BADGE ---------------- */
@@ -36,12 +43,20 @@
   background: #0d0d0d;
   color: #ffffff;
 
+  min-width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border-radius: 999px;
-  padding: 0.2rem 0.6rem;
+  padding: 0 0.4rem;
 
   font-size: 0.75rem;
   font-weight: 800;
   line-height: 1;
 
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
 }
