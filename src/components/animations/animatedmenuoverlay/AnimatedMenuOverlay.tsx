@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
-import { ChevronRight } from "lucide-react";
+import { Menu } from "lucide-react";
 import styles from "../../../styles/animations/AnimatedMenuOverlay.module.css";
 
 interface AnimatedMenuOverlayProps {
@@ -20,29 +20,38 @@ const AnimatedMenuOverlay: React.FC<AnimatedMenuOverlayProps> = ({
 }) => {
   const [animate, setAnimate] = useState(true);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setAnimate(false);
     setTimeout(onClose, 500);
-  };
+  }, [onClose]);
 
-  // cerrar con ESC
+  // ESC para cerrar
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") handleClose();
     };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, []);
+
+    globalThis.addEventListener("keydown", handleKey);
+    return () => globalThis.removeEventListener("keydown", handleKey);
+  }, [handleClose]);
 
   const overlayContent = (
-    <div className={styles.menuOverlayContainer} onClick={handleClose}>
-      <div
+    <button
+      type="button"
+      className={styles.menuOverlayContainer}
+      onClick={handleClose}
+      aria-label="Cerrar menú"
+    >
+      <dialog
+        open
         className={`${styles.animatedMenu} ${
           animate ? styles.open : styles.closing
         }`}
         onClick={(e) => e.stopPropagation()}
+        aria-labelledby="menu-title"
       >
         <button
+          type="button"
           className={styles.closeButton}
           onClick={handleClose}
           aria-label="Cerrar menú"
@@ -57,6 +66,7 @@ const AnimatedMenuOverlay: React.FC<AnimatedMenuOverlayProps> = ({
             return (
               <button
                 key={href}
+                type="button"
                 onClick={() => {
                   scrollToSection(href);
                   handleClose();
@@ -65,16 +75,14 @@ const AnimatedMenuOverlay: React.FC<AnimatedMenuOverlayProps> = ({
                   isActive ? styles.activeItem : ""
                 }`}
               >
-                {isActive && (
-                  <ChevronRight size={18} className={styles.activeIcon} />
-                )}
+                {isActive && <Menu size={18} className={styles.activeIcon} />}
                 {label}
               </button>
             );
           })}
         </div>
-      </div>
-    </div>
+      </dialog>
+    </button>
   );
 
   return createPortal(overlayContent, document.body);
