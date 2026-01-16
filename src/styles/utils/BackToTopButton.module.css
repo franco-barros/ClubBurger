@@ -1,32 +1,59 @@
 .backToTopButton {
+  /* variables locales por coherencia */
+  --red-primary: #8c1d18;
+  --red-dark: #5f1411;
+  --black-carbon: #121212;
+  --white-soft: #f5f5f5;
+
   position: fixed;
-  bottom: 0.55rem;
-  left: 0.55rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
 
-  background: linear-gradient(135deg, #114137 0%, #2a6558 45%, #c7ae7d 100%);
+  width: 56px;
+  height: 56px;
 
-  color: #ffffff;
-  padding: 0.75rem;
-  border: none;
+  background: linear-gradient(
+    135deg,
+    var(--red-primary) 0%,
+    var(--red-dark) 100%
+  );
+
+  color: var(--white-soft);
+  border: 2px solid rgba(255, 255, 255, 0.12);
   border-radius: 50%;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-  z-index: 10000;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   cursor: pointer;
-  width: 48px;
-  height: 48px;
-  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 10000;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .backToTopButton:hover {
-  background: linear-gradient(135deg, #c7ae7d 0%, #bfa478 40%, #114137 100%);
-  transform: scale(1.1);
+  background: linear-gradient(
+    135deg,
+    var(--red-dark) 0%,
+    var(--red-primary) 100%
+  );
+  transform: scale(1.12);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.75),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
+.backToTopButton:active {
+  transform: scale(0.98);
+}
+
+/* ICON */
+
 .icon {
-  font-size: 24px;
+  font-size: 26px;
+  color: var(--white-soft);
   pointer-events: none;
-  color: #ffffff;
 }

@@ -12,7 +12,7 @@ interface WhatsappButtonProps {
 
 const WhatsappButton: React.FC<WhatsappButtonProps> = ({
   phoneNumber,
-  message = "Hola, me gustaría más información.",
+  message = "Hola, me gustaría realizar un pedido de hamburguesas.",
 }) => {
   const encodedMessage = encodeURIComponent(message);
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
