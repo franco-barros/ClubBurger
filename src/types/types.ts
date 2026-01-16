@@ -3,5 +3,5 @@ export interface Product {
   name: string;
   description: string;
   price: number;
-  image?: string; // opcional pero muy recomendable
+  image: string; // opcional pero muy recomendable
 }

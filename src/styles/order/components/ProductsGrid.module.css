@@ -1,0 +1,25 @@
+.productsGrid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .productsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 639px) {
+  .productsGrid {
+    grid-template-columns: 1fr;
+  }
+}

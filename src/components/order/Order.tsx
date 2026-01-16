@@ -2,8 +2,8 @@
 
 import { products } from "@/data/products";
 
-// COMPONENTES (uno por uno, sin index)
-import { ProductCard } from "./productcard";
+// COMPONENTES
+import { ProductsGrid } from "./productsgrid";
 import { ProductModal } from "./productmodal";
 import { CartModal } from "./cartmodal";
 import { CartFloatingButton } from "./cartfloatingbutton";
@@ -15,9 +15,7 @@ const Order = () => {
   return (
     <CartProvider>
       <section>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        <ProductsGrid products={products} />
 
         {/* UI flotante */}
         <CartFloatingButton />
