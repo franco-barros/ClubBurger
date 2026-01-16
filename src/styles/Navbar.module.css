@@ -31,7 +31,7 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.25rem 1rem;
+  padding: 2rem 1rem; /* altura final */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,7 +42,7 @@
 .links {
   display: flex;
   gap: 1.5rem;
-  margin-left: auto;
+  margin-left: auto; /* empuja links a la derecha */
 }
 
 .navLink {
@@ -75,12 +75,13 @@
   cursor: pointer;
 }
 
-/* ---------------- BOTÓN ORDENAR ---------------- */
+/* ---------------- BOTÓN COMPRAR ---------------- */
 
 .cartButtonFloating {
   position: fixed;
   top: 10px;
-  right: 15px; /* 👉 ahora a la derecha */
+  left: 15px; /* 👈 desktop izquierda */
+  right: auto;
   z-index: 2000;
 
   display: flex;
@@ -138,8 +139,13 @@
     display: block;
     position: fixed;
     top: 10px;
-    left: 15px; /* 👉 menú a la izquierda */
+    left: 15px; /* ☰ menú izquierda */
     z-index: 2000;
+  }
+
+  .cartButtonFloating {
+    left: auto;
+    right: 15px; /* 🛒 comprar derecha */
   }
 
   .floatingCenterLogo {

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "../../../styles/order/components/CartModal.module.css";
 import {
   X,
@@ -32,8 +32,18 @@ const CartModal = () => {
     "Efectivo" | "Transferencia"
   >("Efectivo");
 
-  // 🚨 CLAVE: el carrito solo se muestra si está abierto
+  const modalRef = useRef<HTMLDivElement>(null);
+
   if (!isCartOpen) return null;
+
+  const scrollToInput = (element: HTMLElement) => {
+    setTimeout(() => {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 300); // ⏱ espera a que aparezca el teclado
+  };
 
   const sendToWhatsApp = () => {
     const now = new Date();
@@ -77,7 +87,11 @@ ${notes ? `\n📝 *Observaciones:*\n${notes}` : ""}
 
   return (
     <div className={styles.overlay} onClick={closeCart}>
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+      <div
+        ref={modalRef}
+        className={styles.modal}
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* ---------- HEADER ---------- */}
         <header className={styles.header}>
           <div className={styles.title}>
@@ -102,6 +116,7 @@ ${notes ? `\n📝 *Observaciones:*\n${notes}` : ""}
               type="text"
               placeholder="Tu nombre"
               value={name}
+              onFocus={(e) => scrollToInput(e.currentTarget)}
               onChange={(e) => setName(e.target.value)}
             />
           </label>
@@ -111,8 +126,9 @@ ${notes ? `\n📝 *Observaciones:*\n${notes}` : ""}
             <textarea
               placeholder="Observaciones (sin cebolla, punto de cocción, etc.)"
               value={notes}
-              onChange={(e) => setNotes(e.target.value)}
               rows={3}
+              onFocus={(e) => scrollToInput(e.currentTarget)}
+              onChange={(e) => setNotes(e.target.value)}
             />
           </label>
 

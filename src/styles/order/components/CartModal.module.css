@@ -1,3 +1,5 @@
+/* ================= OVERLAY ================= */
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -7,25 +9,39 @@
 
   display: flex;
   justify-content: center;
-  align-items: center;
+
+  /* 🔑 CLAVE: no centrar vertical */
+  align-items: flex-start;
+
+  /* espacio arriba para que suba */
+  padding: 1rem;
+  overflow-y: auto;
 }
 
-/* ---------------- MODAL ---------------- */
+/* ================= MODAL ================= */
 
 .modal {
   background: linear-gradient(160deg, #0f0f0f, #181818);
   border-radius: 22px;
   padding: 1.8rem;
-  width: 95%;
+  width: 100%;
   max-width: 480px;
 
   color: #ffffff;
 
   border: 1px solid rgba(200, 30, 30, 0.3);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
+
+  /* 🔑 CLAVES MOBILE */
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  /* espacio extra para teclado */
+  padding-bottom: calc(1.8rem + env(safe-area-inset-bottom));
 }
 
-/* ---------------- HEADER ---------------- */
+/* ================= HEADER ================= */
 
 .header {
   display: flex;
@@ -56,7 +72,7 @@
   transform: scale(1.1);
 }
 
-/* ---------------- FORM ---------------- */
+/* ================= FORM ================= */
 
 .form {
   margin-top: 1rem;
@@ -74,6 +90,9 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   padding: 0.6rem 0.7rem;
+
+  /* 🔑 permite scroll correcto al enfocar */
+  scroll-margin-top: 1rem;
 }
 
 .field svg {
@@ -97,7 +116,7 @@
   color: rgba(255, 255, 255, 0.4);
 }
 
-/* ---------------- PAYMENT ---------------- */
+/* ================= PAYMENT ================= */
 
 .payment {
   margin-top: 0.4rem;
@@ -120,42 +139,31 @@
   gap: 0.5rem;
 }
 
-.paymentButton {
+.paymentButton,
+.paymentActive {
   flex: 1;
-  background: #1a1a1a;
-  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   padding: 0.45rem 0.6rem;
-
   font-size: 0.8rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.75);
-
   cursor: pointer;
-  transition: background-color 0.25s ease, color 0.25s ease,
-    border-color 0.25s ease, transform 0.2s ease;
 }
 
-.paymentButton:hover {
-  background: #2a2a2a;
-  transform: translateY(-1px);
+.paymentButton {
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .paymentActive {
-  flex: 1;
   background: rgba(200, 30, 30, 0.15);
   border: 1px solid #c81e1e;
-  border-radius: 12px;
-  padding: 0.45rem 0.6rem;
-
-  font-size: 0.8rem;
   font-weight: 800;
   color: #ffffff;
-
   box-shadow: 0 6px 18px rgba(200, 30, 30, 0.35);
 }
 
-/* ---------------- ITEMS ---------------- */
+/* ================= ITEMS ================= */
 
 .list {
   margin-top: 0.8rem;
@@ -165,7 +173,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 0.6rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -175,7 +182,7 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* ---------------- CONTROLS ---------------- */
+/* ================= CONTROLS ================= */
 
 .controls {
   display: flex;
@@ -193,22 +200,12 @@
   background: #1f1f1f;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
-
   padding: 0.35rem 0.5rem;
   color: #ffffff;
-
   cursor: pointer;
-  transition: background-color 0.25s ease, transform 0.2s ease,
-    border-color 0.25s ease;
 }
 
-.controlButton:hover {
-  background: #c81e1e;
-  border-color: #c81e1e;
-  transform: scale(1.05);
-}
-
-/* ---------------- FOOTER ---------------- */
+/* ================= FOOTER ================= */
 
 .footer {
   margin-top: 1.2rem;
@@ -224,7 +221,7 @@
   color: #c81e1e;
 }
 
-/* ---------------- ACTIONS ---------------- */
+/* ================= ACTIONS ================= */
 
 .actions {
   display: flex;
@@ -232,56 +229,25 @@
   margin-top: 1rem;
 }
 
+.clearButton,
+.sendButton {
+  border-radius: 14px;
+  padding: 0.7rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
 .clearButton {
   flex: 1;
   background: #1a1a1a;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  padding: 0.7rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.4rem;
-
   color: #ffffff;
-  font-weight: 700;
-  cursor: pointer;
-
-  transition: background-color 0.25s ease, transform 0.2s ease;
-}
-
-.clearButton:hover {
-  background: #2a2a2a;
-  transform: translateY(-1px);
 }
 
 .sendButton {
   flex: 2;
   background: #c81e1e;
   border: none;
-  border-radius: 14px;
-  padding: 0.7rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.4rem;
-
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.3px;
   color: #ffffff;
-
-  cursor: pointer;
   box-shadow: 0 10px 24px rgba(200, 30, 30, 0.45);
-
-  transition: background-color 0.25s ease, transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.sendButton:hover {
-  background: #e02626;
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(200, 30, 30, 0.65);
 }
