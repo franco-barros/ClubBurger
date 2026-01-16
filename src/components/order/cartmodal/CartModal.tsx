@@ -16,8 +16,15 @@ import {
 import { useCart } from "../context/CartContext";
 
 const CartModal = () => {
-  const { items, addItem, removeItem, clearCart, totalPrice, closeCart } =
-    useCart();
+  const {
+    items,
+    addItem,
+    removeItem,
+    clearCart,
+    totalPrice,
+    closeCart,
+    isCartOpen,
+  } = useCart();
 
   const [name, setName] = useState("");
   const [notes, setNotes] = useState("");
@@ -25,7 +32,8 @@ const CartModal = () => {
     "Efectivo" | "Transferencia"
   >("Efectivo");
 
-  if (items.length === 0) return null;
+  // 🚨 CLAVE: el carrito solo se muestra si está abierto
+  if (!isCartOpen) return null;
 
   const sendToWhatsApp = () => {
     const now = new Date();
@@ -57,11 +65,12 @@ ${notes ? `\n📝 *Observaciones:*\n${notes}` : ""}
 📍 Pedido enviado desde la web
 `;
 
-    const phone = "5492645878987"; // tu número
+    const phone = "5492645878987";
     const encodedMessage = encodeURIComponent(message);
     const url = `https://wa.me/${phone}?text=${encodedMessage}`;
 
     window.open(url, "_blank");
+
     clearCart();
     closeCart();
   };
