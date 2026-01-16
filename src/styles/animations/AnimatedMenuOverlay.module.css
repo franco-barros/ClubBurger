@@ -1,34 +1,50 @@
+/* ======================================================
+   ANIMATED MENU OVERLAY — ROJO / BLANCO / NEGRO
+====================================================== */
+
 .menuOverlayContainer {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(18, 18, 18, 0.92);
   z-index: 1100;
-  overflow: hidden;
+
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
-  font-family: var(--font-inter);
+
+  font-family: var(--font-rethink-sans);
 }
+
+/* =============================
+   PANEL
+============================= */
 
 .animatedMenu {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #8d6b24 0%, #b89b63 45%, #c7ae7d 100%);
+
+  background: linear-gradient(135deg, #121212 0%, #1a1a1a 55%, #121212 100%);
+
   padding: 4rem 2rem;
   box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+
   z-index: 1101;
-  font-family: var(--font-rethink-sans);
 }
+
+/* =============================
+   ANIMATIONS
+============================= */
 
 .open {
   animation: expandMenu 0.5s forwards;
 }
+
 .closing {
   animation: collapseMenu 0.5s forwards;
 }
@@ -39,13 +55,14 @@
     opacity: 0;
   }
   100% {
-    clip-path: circle(100vmax at 50% 50%);
+    clip-path: circle(120vmax at 50% 50%);
     opacity: 1;
   }
 }
+
 @keyframes collapseMenu {
   0% {
-    clip-path: circle(100vmax at 50% 50%);
+    clip-path: circle(120vmax at 50% 50%);
     opacity: 1;
   }
   100% {
@@ -54,78 +71,109 @@
   }
 }
 
+/* =============================
+   CLOSE BUTTON
+============================= */
+
 .closeButton {
   position: absolute;
-  top: 1rem;
+  top: 1.25rem;
   right: 1.25rem;
+
   background: transparent;
   border: none;
-  font-size: 2rem;
+
+  font-size: 2.2rem;
   color: #ffffff;
   cursor: pointer;
+
   z-index: 1102;
-  transition: transform 0.2s ease, color 0.2s ease;
+
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
 .closeButton:hover {
   transform: scale(1.2);
-  color: #c7ae7d;
+  color: #8c1d18;
 }
 
+/* =============================
+   MENU ITEMS
+============================= */
+
 .menuItemsContainer {
-  margin-top: 4rem;
+  margin-top: 5rem;
+
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.6rem;
+
   align-items: flex-start;
 }
+
+/* ---------------- ITEM ---------------- */
 
 .menuItem {
   background: none;
   border: none;
-  font-size: 1.5rem;
+
+  font-size: 1.55rem;
   font-weight: 600;
-  color: #ffffff;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
+  font-family: var(--font-rethink-sans);
+
+  color: #f5f5f5;
+
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.6rem;
+
   cursor: pointer;
+
   opacity: 0;
   transform: translateY(20px);
+
   animation: fadeIn 0.5s forwards;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.25s ease;
 }
 
 .menuItem:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #c7ae7d;
-  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #8c1d18;
+  transform: translateX(6px);
 }
 
+/* ---------------- ACTIVE ---------------- */
+
 .activeItem {
-  color: #114137;
+  color: #8c1d18;
   font-weight: 700;
+
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .activeIcon {
-  color: #114137;
+  color: #8c1d18;
   animation: balanceo 1.5s infinite ease-in-out;
 }
+
+/* =============================
+   KEYFRAMES
+============================= */
 
 @keyframes balanceo {
   0% {
     transform: rotate(0deg);
   }
   25% {
-    transform: rotate(-10deg);
+    transform: rotate(-8deg);
   }
   50% {
     transform: rotate(0deg);
   }
   75% {
-    transform: rotate(10deg);
+    transform: rotate(8deg);
   }
   100% {
     transform: rotate(0deg);
@@ -135,7 +183,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -143,21 +191,25 @@
   }
 }
 
+/* =============================
+   STAGGER
+============================= */
+
 .menuItemsContainer .menuItem:nth-of-type(1) {
-  animation-delay: 0.2s;
+  animation-delay: 0.15s;
 }
 .menuItemsContainer .menuItem:nth-of-type(2) {
-  animation-delay: 0.3s;
+  animation-delay: 0.25s;
 }
 .menuItemsContainer .menuItem:nth-of-type(3) {
-  animation-delay: 0.4s;
+  animation-delay: 0.35s;
 }
 .menuItemsContainer .menuItem:nth-of-type(4) {
-  animation-delay: 0.5s;
+  animation-delay: 0.45s;
 }
 .menuItemsContainer .menuItem:nth-of-type(5) {
-  animation-delay: 0.6s;
+  animation-delay: 0.55s;
 }
 .menuItemsContainer .menuItem:nth-of-type(6) {
-  animation-delay: 0.7s;
+  animation-delay: 0.65s;
 }

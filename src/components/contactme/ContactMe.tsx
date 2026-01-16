@@ -135,7 +135,7 @@ const ContactMe: React.FC = () => {
             <h4 className={styles.infoTitle}>
               <FaEnvelope /> Correo
             </h4>
-            <p>paulamartinezcontadora@gmail.com</p>
+            <p>elclubdelaburger24@gmail.com</p>
           </div>
         </SlideInFromLeft>
 
@@ -194,7 +194,7 @@ const ContactMe: React.FC = () => {
 
             <div className={styles.socialButtons}>
               <a
-                href="https://www.instagram.com/paulamartinez609"
+                href="https://www.instagram.com/elclubdelaburger24"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${styles.socialButton} ${styles.instagramButton}`}
@@ -205,7 +205,7 @@ const ContactMe: React.FC = () => {
 
             <div className={styles.bottomImageWrapper}>
               <Image
-                src="/icons/LogoB2.png"
+                src="/icons/Logo.png"
                 alt="Decoración"
                 width={180}
                 height={160}

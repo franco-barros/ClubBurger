@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { Calculator } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import styles from "../../../styles/animations/AnimatedMenuOverlay.module.css";
 
 interface AnimatedMenuOverlayProps {
@@ -22,17 +22,25 @@ const AnimatedMenuOverlay: React.FC<AnimatedMenuOverlayProps> = ({
 
   const handleClose = () => {
     setAnimate(false);
-    setTimeout(() => {
-      onClose();
-    }, 500);
+    setTimeout(onClose, 500);
   };
 
+  // cerrar con ESC
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClose();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, []);
+
   const overlayContent = (
-    <div className={styles.menuOverlayContainer}>
+    <div className={styles.menuOverlayContainer} onClick={handleClose}>
       <div
         className={`${styles.animatedMenu} ${
           animate ? styles.open : styles.closing
         }`}
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           className={styles.closeButton}
@@ -45,6 +53,7 @@ const AnimatedMenuOverlay: React.FC<AnimatedMenuOverlayProps> = ({
         <div className={styles.menuItemsContainer}>
           {navLinks.map(({ href, label }) => {
             const isActive = activeSection === href;
+
             return (
               <button
                 key={href}
@@ -57,8 +66,8 @@ const AnimatedMenuOverlay: React.FC<AnimatedMenuOverlayProps> = ({
                 }`}
               >
                 {isActive && (
-                  <Calculator size={18} className={styles.activeIcon} />
-                )}{" "}
+                  <ChevronRight size={18} className={styles.activeIcon} />
+                )}
                 {label}
               </button>
             );

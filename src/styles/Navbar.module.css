@@ -80,7 +80,7 @@
 .cartButtonFloating {
   position: fixed;
   top: 10px;
-  left: 15px;
+  right: 15px; /* 👉 ahora a la derecha */
   z-index: 2000;
 
   display: flex;
@@ -136,6 +136,10 @@
 
   .menuButton {
     display: block;
+    position: fixed;
+    top: 10px;
+    left: 15px; /* 👉 menú a la izquierda */
+    z-index: 2000;
   }
 
   .floatingCenterLogo {
